@@ -48,7 +48,7 @@ namespace Slack
             ts.TextAlign = ContentAlignment.MiddleLeft;
             ts.ForeColor = Color.FromArgb(0xba, 0xbb, 0xbf);
 
-            ts.Text = timeStamp.ToString(controller.connected.Client.MySelf.prefs.time24 ? "HH:mm:ss" : "hh:mm:ss");
+            ts.Text = timeStamp.ToString(controller.connected.Client.MySelf.prefs.time24 ? "HH:mm" : "hh:mm tt");
             ts.Size = ts.PreferredSize;
             ts.Location = new Point(userName.Right, userName.Bottom - ts.PreferredHeight);
 
@@ -122,7 +122,7 @@ namespace Slack
             Grow(message);
 
             Label t = new Label();
-            t.Text = timeStamp.ToString(controller.connected.Client.MySelf.prefs.time24 ? "HH:mm:ss" : "hh:mm:ss");
+            t.Text = timeStamp.ToString(controller.connected.Client.MySelf.prefs.time24 ? "HH:mm" : "hh:mm");
             t.Font = timeStampFont;
             t.ForeColor = ts.ForeColor;
             t.Size = new Size(t.PreferredWidth, ts.Font.Height);
