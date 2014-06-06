@@ -10,4 +10,4 @@ Designed for performance and efficiency and trying my best to maintain Slack's i
 
 Although not perfect, we're certainly trying.
 
-If you want to help out, send in a (reasonable) pull request showing off your tallent and what you want to change and you'll get commit access.
+If you want to help out, send in a (reasonable) pull request showing off your talent and what you want to change and you'll get commit access.
