@@ -153,7 +153,6 @@ namespace Slack
             this.Controls.Add(howTo);
             this.Name = "EmailLogin";
             this.Size = new System.Drawing.Size(500, 400);
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailContainer.ResumeLayout(false);
             this.emailContainer.PerformLayout();
             this.ResumeLayout(false);

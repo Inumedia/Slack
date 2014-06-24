@@ -181,7 +181,7 @@ namespace Slack
                 {
                     Text = "\uF004",
                     Location = new Point(-5, 0),
-                    Font = new Font(CustomFonts.Fonts.Families[0], 9),
+                    Font = new Font(CustomFonts.Fonts.Families[0], 8),
                     ForeColor = Color.FromArgb(0x4a, 0x83, 0x7d),
                     Name = u.id,
                 };

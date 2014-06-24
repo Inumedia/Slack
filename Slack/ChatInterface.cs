@@ -82,7 +82,7 @@ namespace Slack
         {
             base.OnLoad(e);
 
-            chatContent.AutoScrollPosition = new Point(lastMessage.Left, chatContent.DisplayRectangle.Height);
+            chatContent.AutoScrollPosition = new Point(lastMessage == null ? 0 : lastMessage.Left, chatContent.DisplayRectangle.Height);
         }
 
         void Client_OnMessageReceived(SlackClient.ReceivingMessage obj)
@@ -238,6 +238,7 @@ namespace Slack
             this.textInput.Name = "textInput";
             this.textInput.Size = new Size(672, textInput.PreferredHeight);
             this.textInput.TabIndex = 1;
+            this.textInput.ShortcutsEnabled = true;
             // 
             // channelTitle
             // 
@@ -308,6 +309,12 @@ namespace Slack
                 e.Handled = true;
                 e.SuppressKeyPress = true;
                 textInput.Text = "";
+            }
+
+            if (e.KeyValue == 8 && e.Modifiers == Keys.Control)
+            {
+                //SendKeys.SendWait("^+{LEFT}{BACKSPACE}");
+                e.SuppressKeyPress = true;
             }
         }
         
