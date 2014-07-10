@@ -125,6 +125,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Extensions.cs" />
+    <Compile Include="KeyboardShortcuts.cs" />
     <Compile Include="MessageEntry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,8 +159,6 @@
     <Compile Include="SlackChannelList.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Utilities\ILockFree.cs" />
-    <Compile Include="Utilities\LockFreeQueue.cs" />
     <EmbeddedResource Include="ChatInterface.resx">
       <DependentUpon>ChatInterface.cs</DependentUpon>
     </EmbeddedResource>

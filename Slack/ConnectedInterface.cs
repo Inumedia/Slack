@@ -1,6 +1,7 @@
 ﻿using SlackAPI;
 using Slack.Adapters;
-using Slack.Utilities;
+using SlackAPI.Utilities;
+using SlackAPI.WebSocketMessages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -138,7 +139,7 @@ namespace Slack
             channelList.SelectChannel(channelId);
         }
 
-        public void SendMessage(Action<SlackClient.ReceivingMessage> callback, string text, string channelId = null)
+        public void SendMessage(Action<Received> callback, string text, string channelId = null)
         {
             Client.SendMessage(callback, channelId ?? activeChat.Id, text);
             //client.SendMessage(callback, channelId ?? activeChat.Id, text);

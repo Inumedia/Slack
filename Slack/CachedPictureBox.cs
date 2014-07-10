@@ -1,4 +1,4 @@
-﻿using Slack.Utilities;
+﻿using SlackAPI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
