@@ -1,4 +1,5 @@
 ﻿using SlackAPI;
+using SlackAPI.WebSocketMessages;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -73,7 +74,9 @@ namespace Slack
 
             this.AutoScroll = true;
 
-            parent.Client.OnPresenceChanged += (r) => UpdatePresences();
+            parent.Client.BindCallback<PresenceChange>((r) =>
+                BeginInvoke(new Action(UpdatePresences))
+            );
         }
 
         void UpdatePresences()

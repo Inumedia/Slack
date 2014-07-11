@@ -75,8 +75,8 @@ namespace Slack
         void AuthSignIn()
         {
             EventWaitHandle wait = new EventWaitHandle(false, EventResetMode.ManualReset);
-            SlackClient client = new SlackClient(token);
-            client.OnHello += (r) =>
+            SlackSocketClient client = new SlackSocketClient(token);
+            client.OnHello += () =>
             {
                 wait.Set();
             };

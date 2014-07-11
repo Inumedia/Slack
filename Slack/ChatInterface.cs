@@ -1,5 +1,6 @@
-﻿using SlackAPI;
-using Slack.Adapters;
+﻿using Slack.Adapters;
+using SlackAPI;
+using SlackAPI.WebSocketMessages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,7 +75,7 @@ namespace Slack
             foreach (SlackAPI.Message message in history.messages.Reverse())
                 AddMessage(message);
 
-            connected.Client.OnMessageReceived += Client_OnMessageReceived;
+            connected.Client.BindCallback<NewMessage>(Client_OnMessageReceived);
             //BeginInvoke(new Action(() => chatContent.AutoScrollPosition = new Point(lastMessage.Left, chatContent.DisplayRectangle.Height)));
         }
 
@@ -85,7 +86,7 @@ namespace Slack
             chatContent.AutoScrollPosition = new Point(lastMessage == null ? 0 : lastMessage.Left, chatContent.DisplayRectangle.Height);
         }
 
-        void Client_OnMessageReceived(SlackClient.ReceivingMessage obj)
+        void Client_OnMessageReceived(NewMessage obj)
         {
             if (obj.channel.Equals(Id))
                 BeginInvoke(new Action(() =>

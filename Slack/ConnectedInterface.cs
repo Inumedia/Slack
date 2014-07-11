@@ -1,5 +1,5 @@
-﻿using SlackAPI;
-using Slack.Adapters;
+﻿using Slack.Adapters;
+using SlackAPI;
 using SlackAPI.Utilities;
 using SlackAPI.WebSocketMessages;
 using System;
@@ -21,7 +21,7 @@ namespace Slack
 {
     public class ConnectedInterface : UserControl
     {
-        public SlackClient Client;
+        public SlackSocketClient Client;
 
         CachedPictureBox userPicture;
 
@@ -34,7 +34,7 @@ namespace Slack
         Dictionary<string, ChatInterface> chats;
         ChatInterface activeChat;
 
-        public ConnectedInterface(SlackClient connectedClient, LoginResponse loginDetails)
+        public ConnectedInterface(SlackSocketClient connectedClient, LoginResponse loginDetails)
         {
             Client = connectedClient;
             chats = new Dictionary<string, ChatInterface>();
@@ -139,7 +139,7 @@ namespace Slack
             channelList.SelectChannel(channelId);
         }
 
-        public void SendMessage(Action<Received> callback, string text, string channelId = null)
+        public void SendMessage(Action<MessageReceived> callback, string text, string channelId = null)
         {
             Client.SendMessage(callback, channelId ?? activeChat.Id, text);
             //client.SendMessage(callback, channelId ?? activeChat.Id, text);
