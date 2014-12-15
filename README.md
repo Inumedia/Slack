@@ -11,3 +11,14 @@ Designed for performance and efficiency and trying my best to maintain Slack's i
 Although not perfect, we're certainly trying.
 
 If you want to help out, send in a (reasonable) pull request showing off your talent and what you want to change and you'll get commit access.
+
+Why
+=====
+
+Because I'm tired of having a Chrome tab dedicated to Slack.
+
+
+How to run it
+=====
+
+Load the Slack.sln file in Visual Studio 2013, compile, and run.
