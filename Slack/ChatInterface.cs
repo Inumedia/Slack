@@ -110,7 +110,8 @@ namespace Slack
         {
             if (entry.user == null || entry.text == null) return;
 
-            string username = adapter.GetUserInfo(entry.user).name;
+            User u = adapter.GetUserInfo(entry.user);
+            string username = u != null ? u.name : "Unknown";
 
             if (lastMessage != null && lastMessage.OwnerUsername.Equals(username) && entry.ts.Subtract(lastMessage.lastTimeStamp) < TimeSpan.FromMinutes(5))
                 lastMessage.AppendMessage(entry.text, entry.ts);
